@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chilli's Tacos &amp; Nachos | Bar-Restaurante en Parla</title>
+<meta name="description" content="Chilli's Tacos & Nachos, bar-restaurante en C. Cuba 3, Parla. Tacos, nachos, burritos, quesadillas, ceviches, patacones, cócteles y micheladas. Llama al 641 004 116.">
+<meta name="theme-color" content="#16110f">
+<link rel="preload" as="image" href="img/portada.webp">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Chilli's Tacos & Nachos",
+  "image": "img/portada.webp",
+  "telephone": "+34641004116",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C. Cuba, 3",
+    "addressLocality": "Parla",
+    "postalCode": "28983",
+    "addressRegion": "Madrid",
+    "addressCountry": "ES"
+  },
+  "hasMap": "https://maps.app.goo.gl/9RvFCQuzyVugzvPP7",
+  "servesCuisine": ["Mexicana", "Colombiana"],
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "13:00", "closes": "23:30"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "12:30", "closes": "23:30"}
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#16110f;        /* fondo marrón-negro de la carta */
+  --panel:#2a2522;     /* paneles oscuros */
+  --panel2:#3b3734;    /* paneles grises de la carta */
+  --pink:#e2468f;      /* rosa fuerte de los platos */
+  --pink-soft:#eea7c6; /* rosa claro de cócteles */
+  --text:#f6f1ee;
+  --muted:#c9bfba;
+  --display:"Bebas Neue","Oswald",Impact,"Arial Narrow Bold","sans-serif-condensed","Roboto Condensed",sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.5;padding-bottom:76px;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 18px}
+h1,h2,h3,.disp{font-family:var(--display);font-weight:700;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+section{padding:56px 0}
+h2{font-size:2.4rem;margin-bottom:6px}
+h2 span{color:var(--pink)}
+.lead{color:var(--muted);margin-bottom:26px}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:999px;font-weight:700;font-size:1.05rem;text-decoration:none;border:2px solid var(--pink);transition:transform .15s,background .15s}
+.btn:active{transform:scale(.97)}
+.btn-pink{background:var(--pink);color:#fff}
+.btn-ghost{background:rgba(0,0,0,.35);color:#fff;border-color:#fff}
+.btn svg{width:20px;height:20px;flex-shrink:0}
+
+/* Cabecera */
+header{position:sticky;top:0;z-index:20;background:rgba(22,17,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid #2f2926}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--display);font-size:1.7rem;text-decoration:none;line-height:.9}
+.logo small{display:block;font-size:.62rem;letter-spacing:.25em;color:var(--pink)}
+header .btn{min-height:48px;padding:0 18px;font-size:.95rem}
+
+/* Portada */
+.hero{position:relative;min-height:88svh;display:flex;align-items:flex-end;padding:0 0 44px;overflow:hidden;
+  background:radial-gradient(circle at 70% 20%,#5a2340 0,transparent 55%),linear-gradient(160deg,#2b211d,#16110f)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,17,15,.25) 0%,rgba(22,17,15,.55) 45%,var(--bg) 100%)}
+.hero .wrap{position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(0,0,0,.55);font-size:.9rem;font-weight:600;margin-bottom:18px}
+.dot{width:10px;height:10px;border-radius:50%;background:#888}
+.badge.open .dot{background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.25)}
+.badge.closed .dot{background:#ff5c5c}
+.hero h1{font-size:clamp(4.2rem,22vw,8rem)}
+.hero .sub{font-family:var(--display);font-size:clamp(1.6rem,7.5vw,2.6rem);letter-spacing:.18em}
+.hero .tag{font-family:var(--display);color:var(--pink);letter-spacing:.3em;font-size:1.05rem;margin:6px 0 18px}
+.hero p.desc{max-width:520px;color:#eee;margin-bottom:24px}
+.hero .ctas{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:460px}
+
+/* Carta */
+.menu-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.card{background:var(--panel);border-radius:var(--r);padding:20px;border-left:4px solid var(--pink)}
+.card:nth-child(even){background:var(--panel2)}
+.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.card h3{font-size:1.8rem}
+.price{font-family:var(--display);font-size:1.35rem;white-space:nowrap}
+.price small{font-family:var(--body);font-size:.75rem;color:var(--muted);text-transform:none;margin-right:4px}
+.card p{color:var(--muted);font-size:.95rem;margin:6px 0 10px}
+.card ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.card li{font-family:var(--display);font-size:1.05rem;color:var(--pink);background:rgba(226,70,143,.1);padding:4px 10px;border-radius:6px}
+.card.drinks{border-left-color:var(--pink-soft)}
+.card.drinks li{color:var(--pink-soft);background:rgba(238,167,198,.1)}
+.note{margin-top:18px;color:var(--muted);font-size:.9rem}
+.pend{color:#ffcf5c;font-weight:600}
+
+/* Reseñas */
+.reviews{display:grid;gap:14px}
+.review{background:var(--panel);border-radius:var(--r);padding:20px}
+.stars{color:#fbbc04;font-size:1.2rem;letter-spacing:2px}
+.review blockquote{margin:8px 0 12px;font-size:1.02rem}
+.review cite{font-style:normal;font-weight:700;color:var(--pink-soft)}
+.review cite span{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+.more{margin-top:20px}
+
+/* Galería */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gallery figure{aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--panel2) linear-gradient(135deg,#3b3734,#2a2522)}
+.gallery figure:first-child{grid-column:span 2;aspect-ratio:16/10}
+.gallery img{width:100%;height:100%;object-fit:cover}
+
+/* Horario */
+.hours{background:var(--panel);border-radius:var(--r);overflow:hidden;max-width:560px}
+.hours div{display:flex;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #3a3330;font-size:1.05rem}
+.hours div:last-child{border-bottom:0}
+.hours .today{background:var(--pink);color:#fff;font-weight:700}
+.hours .today .d::after{content:" · HOY";font-size:.8rem}
+.closed-day{color:#ff8a8a}
+.hours .today .closed-day{color:#fff}
+
+/* Contacto */
+.contact{display:grid;gap:12px}
+.c-item{display:flex;gap:14px;align-items:center;background:var(--panel);border-radius:var(--r);padding:16px 18px;text-decoration:none;min-height:64px}
+.c-item svg{width:26px;height:26px;color:var(--pink);flex-shrink:0}
+.c-item b{display:block;font-size:.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+
+/* Pie */
+footer{border-top:1px solid #2f2926;padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
+footer nav{display:flex;justify-content:center;gap:18px;margin-top:10px;flex-wrap:wrap}
+footer a{display:inline-flex;align-items:center;min-height:48px}
+
+/* Barra fija móvil */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(3,1fr);background:#0f0b0a;border-top:2px solid var(--pink);padding-bottom:env(safe-area-inset-bottom)}
+.bar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:64px;text-decoration:none;font-size:.82rem;font-weight:700}
+.bar a:nth-child(1){background:var(--pink)}
+.bar a:nth-child(2) svg{color:#25d366}
+.bar svg{width:24px;height:24px}
+
+@media(min-width:720px){
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .reviews{grid-template-columns:repeat(3,1fr)}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .gallery figure:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .contact{grid-template-columns:1fr 1fr}
+}
+@media(min-width:900px){
+  body{padding-bottom:0}
+  .bar{display:none}
+  .menu-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- Iconos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.52.08-1.17.11-1.88-.12a17 17 0 0 1-1.7-.63 13.3 13.3 0 0 1-5.1-4.5c-.37-.5-.9-1.6-.9-2.75s.6-1.7.82-1.93a.86.86 0 0 1 .62-.29h.45c.15 0 .35-.06.54.41l.75 1.83c.06.13.1.28.02.45-.08.17-.12.27-.25.42l-.37.43c-.12.12-.25.26-.11.5a11 11 0 0 0 2.05 2.55 10 10 0 0 0 2.96 1.83c.25.12.4.1.54-.06l.8-.94c.17-.25.33-.2.56-.12l1.8.85c.25.12.4.18.47.28.06.1.06.6-.18 1.29z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap">
+    <a href="#inicio" class="logo">CHILLI'S<small>TACOS &amp; NACHOS</small></a>
+    <a class="btn btn-pink" href="tel:+34641004116"><svg><use href="#i-phone"/></svg>Llamar</a>
+  </div>
+</header>
+
+<main>
+  <!-- PORTADA -->
+  <section class="hero" id="inicio">
+    <img src="img/portada.webp" alt="Tacos y nachos de Chilli's Tacos & Nachos en Parla" fetchpriority="high" onerror="this.remove()">
+    <div class="wrap">
+      <div class="badge" id="status"><span class="dot"></span><span id="status-txt">Consultando horario…</span></div>
+      <h1>Chilli's</h1>
+      <div class="sub">Tacos &amp; Nachos</div>
+      <div class="tag">Bar · Restaurante · Parla</div>
+      <p class="desc">Tacos, nachos, burritos, quesadillas, ceviches, patacones, hamburguesas y cócteles en C. Cuba, 3, Parla.</p>
+      <div class="ctas">
+        <a class="btn btn-pink" href="tel:+34641004116"><svg><use href="#i-phone"/></svg>Llamar</a>
+        <a class="btn btn-ghost" href="https://maps.app.goo.gl/9RvFCQuzyVugzvPP7" target="_blank" rel="noopener"><svg><use href="#i-map"/></svg>Cómo llegar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA / SERVICIOS -->
+  <section id="carta">
+    <div class="wrap">
+      <h2>Nuestra <span>carta</span></h2>
+      <p class="lead">Algunos de nuestros platos. Pregunta por la carta completa en el local.</p>
+
+      <div class="menu-grid">
+        <article class="card">
+          <div class="top"><h3>Tacos</h3><div class="price"><small>desde</small>7,80€</div></div>
+          <p>4 unidades. Tortillas de maíz 100% con relleno a elegir.</p>
+          <ul><li>Al pastor</li><li>Cochinita pibil</li><li>Birria de ternera</li><li>Carne asada</li></ul>
+        </article>
+        <article class="card">
+          <div class="top"><h3>Nachos</h3><div class="price"><small>desde</small>7,60€</div></div>
+          <p>Nachos hechos en casa, gratinados y con guacamole casero.</p>
+          <ul><li>Nachos Chilli's</li><li>Nachos de birria</li><li>Nachos de cochinita</li><li>Chilli cheese</li></ul>
+        </article>
+        <article class="card">
+          <div class="top"><h3>Burritos</h3><div class="price"><small>desde</small>8,00€</div></div>
+          <p>Tortilla de trigo dorada con frijoles, salsa de aguacate, arroz, queso fundido y pico de gallo.</p>
+          <ul><li>Carnitas</li><li>Birria</li><li>Ternera asada</li></ul>
+        </article>
+        <article class="card">
+          <div class="top"><h3>Quesadillas</h3><div class="price"><small>desde</small>5,50€</div></div>
+          <p>Jugosas tortillas de trigo rellenas de queso fundido.</p>
+          <ul><li>Reina guacamole</li><li>Birria</li><li>Gringa</li><li>Pollo al chipotle</li></ul>
+        </article>
+        <article class="card">
+          <div class="top"><h3>Chilaquiles</h3><div class="price"><small>desde</small>9,00€</div></div>
+          <p>Tortillitas de maíz fritas en salsa verde o roja, con carne, queso fundido y crema mexicana.</p>
+          <ul><li>Birriaquiles</li><li>Cochinita</li><li>Pollo</li></ul>
+        </article>
+        <article class="card">
+          <div class="top"><h3>Fajitas y bowls</h3><div class="price"><small>desde</small>8,50€</div></div>
+          <p>Fajitas con lechuga, crema agria, pico de gallo y cilantro. Taco bowls de arroz con tu proteína favorita.</p>
+          <ul><li>Fajitas mixtas</li><li>Taco bowl</li></ul>
+        </article>
+        <article class="card">
+          <div class="top"><h3>Ceviches</h3><div class="price"><small>desde</small>9,00€</div></div>
+          <p>Macerados en lima y acompañados de patacones de plátano verde.</p>
+          <ul><li>Camarón y aguacate</li><li>Chicharrón y guacamole</li></ul>
+        </article>
+        <article class="card">
+          <div class="top"><h3>Patacones</h3><div class="price"><small>desde</small>7,50€</div></div>
+          <p>Plátano verde crujiente con el relleno que elijas.</p>
+          <ul><li>Patacón con todo</li><li>Carne desmechada</li><li>Tabla mix</li></ul>
+        </article>
+        <article class="card">
+          <div class="top"><h3>Hamburguesas</h3><div class="price"><small>desde</small>7,50€</div></div>
+          <p>Todas nuestras hamburguesas incluyen patatas.</p>
+          <ul><li>Especial Chilli's</li><li>Doble hawaiana</li><li>Patacón burger</li></ul>
+        </article>
+        <article class="card drinks">
+          <div class="top"><h3>Cócteles</h3><div class="price"><small>desde</small>6,00€</div></div>
+          <p>Cócteles especiales de la casa.</p>
+          <ul><li>Margaritas</li><li>Daiquiri maracuyá</li><li>Mojitos</li><li>Cantaritos</li></ul>
+        </article>
+        <article class="card drinks">
+          <div class="top"><h3>Cervezas y micheladas</h3><div class="price"><small>desde</small>3,00€</div></div>
+          <p>Cervezas mexicanas y micheladas.</p>
+          <ul><li>Modelo</li><li>Pacífico</li><li>Michelada mexicana</li><li>Mangochela</li></ul>
+        </article>
+        <article class="card">
+          <div class="top"><h3>Postres</h3></div>
+          <p>Todos nuestros postres son caseros. Pregunta por las especialidades de la semana.</p>
+        </article>
+      </div>
+      <p class="note">Comer en el local · Para llevar · A domicilio: <span class="pend">[PENDIENTE]</span></p>
+    </div>
+  </section>
+
+  <!-- RESEÑAS -->
+  <section id="resenas" style="background:#1d1714">
+    <div class="wrap">
+      <h2>Lo que dicen <span>de nosotros</span></h2>
+      <p class="lead">Opiniones de clientes en Google.</p>
+      <div class="reviews">
+        <figure class="review">
+          <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <blockquote>Tacos excelentes, que no es fácil. Chilaquiles, empanadas colombianas... todo muy rico. Y un servicio excelente.</blockquote>
+          <cite>Juan Carlos Coma<span>Reseña en Google</span></cite>
+        </figure>
+        <figure class="review">
+          <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <blockquote>Excelente servicio. Platos variados y deliciosos. Excelente presentación. Enhorabuena, lugar encantador.</blockquote>
+          <cite>Juan Restrepo<span>Reseña en Google</span></cite>
+        </figure>
+        <figure class="review">
+          <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <blockquote>Lo mejor de Parla es el servicio 100/10, el sitio es genial y las empanadas son las mejores que he probado nunca.</blockquote>
+          <cite>Marvin Rosales <span class="pend">[PENDIENTE: confirmar nombre]</span><span>Reseña en Google</span></cite>
+        </figure>
+      </div>
+      <a class="btn btn-ghost more" href="https://maps.app.goo.gl/9RvFCQuzyVugzvPP7" target="_blank" rel="noopener">Ver todas las reseñas en Google</a>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <div class="wrap">
+      <h2><span>Galería</span></h2>
+      <p class="lead">Nuestros platos y nuestro local.</p>
+      <div class="gallery">
+        <figure><img src="img/galeria-1.webp" alt="Tacos de Chilli's Tacos & Nachos" loading="lazy" width="800" height="500"></figure>
+        <figure><img src="img/galeria-2.webp" alt="Nachos con queso fundido y guacamole" loading="lazy" width="400" height="400"></figure>
+        <figure><img src="img/galeria-3.webp" alt="Hamburguesa con patatas" loading="lazy" width="400" height="400"></figure>
+        <figure><img src="img/galeria-4.webp" alt="Cóctel especial de la casa" loading="lazy" width="400" height="400"></figure>
+        <figure><img src="img/galeria-5.webp" alt="Michelada" loading="lazy" width="400" height="400"></figure>
+        <figure><img src="img/galeria-6.webp" alt="Interior del local Chilli's en Parla" loading="lazy" width="400" height="400"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORARIO -->
+  <section id="horario" style="background:#1d1714">
+    <div class="wrap">
+      <h2>Horario</h2>
+      <p class="lead">Te esperamos de martes a domingo.</p>
+      <div class="hours" id="hours">
+        <div data-day="1"><span class="d">Lunes</span><span class="closed-day">Cerrado</span></div>
+        <div data-day="2"><span class="d">Martes</span><span>13:00 – 23:30</span></div>
+        <div data-day="3"><span class="d">Miércoles</span><span>13:00 – 23:30</span></div>
+        <div data-day="4"><span class="d">Jueves</span><span>13:00 – 23:30</span></div>
+        <div data-day="5"><span class="d">Viernes</span><span>13:00 – 23:30</span></div>
+        <div data-day="6"><span class="d">Sábado</span><span>12:30 – 23:30</span></div>
+        <div data-day="0"><span class="d">Domingo</span><span>12:30 – 23:30</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <p class="lead">Llámanos, escríbenos o ven a vernos.</p>
+      <div class="contact">
+        <a class="c-item" href="https://maps.app.goo.gl/9RvFCQuzyVugzvPP7" target="_blank" rel="noopener"><svg><use href="#i-map"/></svg><span><b>Dirección · Abrir en Google Maps</b>C. Cuba, 3, 28983 Parla, Madrid</span></a>
+        <a class="c-item" href="tel:+34641004116"><svg><use href="#i-phone"/></svg><span><b>Teléfono</b>641 004 116</span></a>
+        <a class="c-item" href="https://wa.me/34641004116" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span><b>WhatsApp</b>641 004 116</span></a>
+        <div class="c-item"><svg><use href="#i-mail"/></svg><span><b>Email</b><span class="pend">[PENDIENTE]</span></span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="year"></span> Chilli's Tacos &amp; Nachos · C. Cuba, 3, Parla</div>
+    <nav>
+      <a href="#">Aviso legal <span class="pend">[PENDIENTE]</span></a>
+      <a href="#">Política de privacidad <span class="pend">[PENDIENTE]</span></a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Barra fija móvil -->
+<nav class="bar" aria-label="Acciones rápidas">
+  <a href="tel:+34641004116"><svg><use href="#i-phone"/></svg>Llamar</a>
+  <a href="https://wa.me/34641004116" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+  <a href="https://maps.app.goo.gl/9RvFCQuzyVugzvPP7" target="_blank" rel="noopener"><svg><use href="#i-map"/></svg>Cómo llegar</a>
+</nav>
+
+<script>
+(function(){
+  // Horario: [abre, cierra] en minutos; índice 0 = domingo
+  var H = {0:[750,1410],1:null,2:[780,1410],3:[780,1410],4:[780,1410],5:[780,1410],6:[750,1410]};
+  var now = new Date(), d = now.getDay(), m = now.getHours()*60 + now.getMinutes();
+
+  var row = document.querySelector('#hours [data-day="'+d+'"]');
+  if(row) row.classList.add('today');
+
+  var badge = document.getElementById('status'), txt = document.getElementById('status-txt'), t = H[d];
+  function hhmm(x){return Math.floor(x/60)+':'+('0'+x%60).slice(-2)}
+  if(t && m >= t[0] && m < t[1]){
+    badge.classList.add('open'); txt.textContent = 'Abierto ahora · hasta las ' + hhmm(t[1]);
+  } else {
+    badge.classList.add('closed');
+    if(t && m < t[0]) txt.textContent = 'Cerrado · hoy abrimos a las ' + hhmm(t[0]);
+    else txt.textContent = 'Cerrado ahora';
+  }
+  document.getElementById('year').textContent = now.getFullYear();
+})();
+</script>
+</body>
+</html>
